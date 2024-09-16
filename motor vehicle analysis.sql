@@ -4795,7 +4795,7 @@ select *
 from dbo.make_details
 
 select *
-from dbo.locations
+from dbo.locations;
 
 -- what day of the week are vehicles most stolen and least stolen
 with theft_day as(
@@ -4839,6 +4839,7 @@ GROUP BY
     vehicle_type
 ORDER BY 
     COUNT(*) DESC
+	-- stationwagon has the most number of stolen vehicles with a total of 945 cases
 
 -- Least stolen vehicle type overall
 SELECT TOP 1
@@ -4850,7 +4851,7 @@ GROUP BY
     vehicle_type
 ORDER BY 
     COUNT(*) ASC
-
+-- articulated truck is the least stolen vehicle with one incident case
 
 
 -- What is the average age of the vehicles that are stolen? Does this vary based on the vehicle type?
@@ -4865,7 +4866,8 @@ GROUP BY
     vehicle_type
 ORDER BY 
     average_age DESC
-
+	 -- age os stolen vehicles vary based on types with the least oldest vehicles least stolen and vehicles with 
+	 -- older ages having more stolen cases.This may be dues to improved technology in newer vehicles.
 -- Overall average age of stolen vehicles
 SELECT 
     AVG(YEAR([date_stolen]) - model_year) AS overall_average_age
@@ -4888,7 +4890,7 @@ GROUP BY
     l.region, l.population, l.density
 ORDER BY 
     total_thefts DESC
-
+	-- auckland has the most number of cases of vehicles theft with a total of 1638 cases reported
 -- which manufacturer has the most number of vehicles stolen ?
 select count(*) as number_of_stolen_vehicles,make_name
 from dbo.stolen_vehicles as s
@@ -4897,5 +4899,4 @@ on s.make_id = m.make_id
 group by make_name
 order by  number_of_stolen_vehicles desc
 
--- toyota had the most number of vehices stolen 
-
+-- toyota has a total of 716 vehicles stolen
