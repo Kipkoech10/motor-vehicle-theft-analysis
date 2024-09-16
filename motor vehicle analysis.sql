@@ -4897,3 +4897,5 @@ on s.make_id = m.make_id
 group by make_name
 order by  number_of_stolen_vehicles desc
 
+-- toyota had the most number of vehices stolen 
+
